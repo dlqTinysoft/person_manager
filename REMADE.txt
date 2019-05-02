@@ -1,0 +1,30 @@
+
+###=====================编写项目时候，遇到的问题============================
+
+1.jackson做序列化的时候，响应给前端总是报错406？
+    这是因为在方法中添加了@ResponseBody注解后，响应的头中没有content-type没有标明响应的是application/json
+    解决方式：1）添加jackson转换器  <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+                                       <property name="supportedMediaTypes">
+                                           <list>
+                                               <value>application/json;charset=UTF-8</value>
+                                           </list>
+                                       </property>
+                                   </bean>
+            注意：见spring-mvc配置文件
+            2)需要响应给前端的json串实体类必须实现Serializable接口，同时提供setter/getter方法。（见JsonReult实体类，该类标准的写法，才能使用@ResponseBody注解将对象转换为json串。@RespoonseBody依赖jackson包）
+
+
+
+2.前端从json给后台，请求报400错误？
+    原因是后台将json串解析为对象时，json串的字段名和对象的字段名不一样，导致的json转换不成功导致的
+    （转换模式，见AuthController ("/register")）
+
+
+
+##========================编写项目时候，知识点简单纪要===========================
+
+1.key-value模式接收数据，同时以json模式即（{
+                             	"password": "asdfsdfdsf",
+                             	"username": "dasfsdfdsf"
+                             }）,则后台可以使用map来接收写法为 method(@RequestBody Map<String,String> map)(见AuthController的login模块)
+2.响应给前端的json串，只需在方法在加@ResponseBody即可，不过需要引入jackson包，见pom文件。
