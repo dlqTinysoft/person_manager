@@ -1,0 +1,16 @@
+com\ccnu\dao\UserExample$Criterion.class
+com\ccnu\mapper\UserMapper.class
+com\ccnu\dao\UserExample$GeneratedCriteria.class
+com\ccnu\service\AuthService.class
+com\ccnu\dao\User.class
+com\ccnu\utils\JsonReult.class
+com\ccnu\dao\RelationExample$GeneratedCriteria.class
+com\ccnu\dao\RelationExample$Criteria.class
+com\ccnu\dao\RelationExample.class
+com\ccnu\dao\UserExample$Criteria.class
+com\ccnu\dao\Relation.class
+com\ccnu\renum\ResultCode.class
+com\ccnu\dao\RelationExample$Criterion.class
+com\ccnu\mapper\RelationMapper.class
+com\ccnu\dao\UserExample.class
+com\ccnu\controller\AuthController.class
